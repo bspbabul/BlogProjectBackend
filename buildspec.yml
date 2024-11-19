@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - yum install -y java-22-amazon-corretto
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+  build:
+    commands:
+      - echo Building the Spring Boot application...
+      - ./mvnw clean package -DskipTests
+      - echo Copying the JAR file to output location...
+      - cp target/blogbackend-0.0.1-SNAPSHOT.jar blogbackend.jar
+  post_build:
+    commands:
+      - echo Build completed, preparing artifact...
+      - mkdir -p /tmp/deployment
+      - cp blogbackend.jar /tmp/deployment/
+
+
+artifacts:
+  files:
+    - blogbackend.jar
+  discard-paths: yes
+  base-directory: .
