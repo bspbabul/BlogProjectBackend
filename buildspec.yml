@@ -4,8 +4,8 @@ phases:
   install:
     commands:
       - echo Installing dependencies...
-      - yum install -y maven
-      - yum install -y java-22-amazon-corretto
+      - apt install -y maven
+      - apt install -y java-22-amazon-corretto
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
