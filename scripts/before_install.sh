@@ -4,7 +4,7 @@ echo "Updating package list..."
 sudo apt update
 
 echo "Installing Java..."
-sudo apt install openjdk-22-jdk -y
+sudo apt install openjdk-17-jdk -y
 
 echo "Installing MySQL..."
 sudo apt install mysql-server -y

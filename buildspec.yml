@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Installing dependencies...
       - apt install -y maven
-      - apt install -y java-22-amazon-corretto
+      - apt install -y java-17-amazon-corretto
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
