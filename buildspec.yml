@@ -5,6 +5,10 @@ phases:
     commands:
       - echo Installing dependencies...
       - apt install -y maven
+      - apt install -y wget
+      - wget -O- https://apt.corretto.aws/corretto.key | gpg --dearmor | sudo tee /usr/share/keyrings/corretto-keyring.gpg
+      - echo 'deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main' | sudo tee /etc/apt/sources.list.d/corretto.list
+      - apt update
       - apt install -y java-17-amazon-corretto
   pre_build:
     commands:
