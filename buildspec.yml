@@ -18,7 +18,7 @@ phases:
       - mvn -version
       - ./mvnw clean package -DskipTests
       - echo Copying the JAR file to output location...
-      - cp target/blogbackend-0.0.1-SNAPSHOT.jar blogbackend.jar
+      - cp target/Blog_app-0.0.1-SNAPSHOT.jar blogbackend.jar
       - echo Build completed!
 
   post_build:
