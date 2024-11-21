@@ -5,11 +5,6 @@ phases:
     commands:
       - echo Installing dependencies...
       - apt-get update
-      - apt-get install -y wget gnupg
-      - wget -O- https://apt.corretto.aws/corretto.key | gpg --dearmor | tee /usr/share/keyrings/corretto-keyring.gpg
-      - echo 'deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main' | tee /etc/apt/sources.list.d/corretto.list
-      - apt-get update
-      # Try using OpenJDK 17 instead of Amazon Corretto
       - apt-get install -y openjdk-17-jdk
       - apt-get install -y maven
   pre_build:
@@ -29,6 +24,7 @@ phases:
 
 artifacts:
   files:
-    - blogbackend.jar
+    - target/blogbackend.jar
   discard-paths: yes
   base-directory: .
+
